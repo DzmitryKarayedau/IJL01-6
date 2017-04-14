@@ -1,3 +1,5 @@
+package com.emerline.ijl01_6.exceptions;
+
 /**
  * Created by dzmitry.karayedau on 13-Apr-17.
  */
