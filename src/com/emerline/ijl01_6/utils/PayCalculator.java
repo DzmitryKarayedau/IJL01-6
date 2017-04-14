@@ -1,3 +1,8 @@
+package com.emerline.ijl01_6.utils;
+
+import com.emerline.ijl01_6.exceptions.HoursOverLimitException;
+import com.emerline.ijl01_6.exceptions.PriceOverLimitException;
+
 /**
  * Created by dzmitry.karayedau on 13-Apr-17.
  */
@@ -25,10 +30,10 @@ public class PayCalculator {
 
     private static void validateData(float pricePerHour, float workingHours) throws HoursOverLimitException, PriceOverLimitException {
         if (pricePerHour < MIN_PRICE_PER_HOUR) {
-            throw new PriceOverLimitException("Price " + pricePerHour + " lower then minimum " + MIN_PRICE_PER_HOUR);
+            throw new PriceOverLimitException(String.format("Price %f lower then minimum %f", pricePerHour, MIN_PRICE_PER_HOUR));
         }
         if (workingHours > MAX_HOURS_PER_WEEK) {
-            throw new HoursOverLimitException("Working hours " + workingHours + " higher then maximum " + MAX_HOURS_PER_WEEK);
+            throw new HoursOverLimitException(String.format("Working hours %f higher then maximum %f", workingHours, MAX_HOURS_PER_WEEK));
         }
     }
 
