@@ -4,6 +4,7 @@ import com.emerline.ijl01_6.exceptions.HoursOverLimitException;
 import com.emerline.ijl01_6.exceptions.PriceOverLimitException;
 import com.emerline.ijl01_6.utils.PayCalculator;
 
+import java.math.BigDecimal;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,15 +12,15 @@ public class Main {
 
     public static void main(String[] args) throws HoursOverLimitException, PriceOverLimitException {
         Scanner in = new Scanner(System.in);
-        float workingHours;
-        float pricePerHour;
+        BigDecimal workingHours;
+        BigDecimal pricePerHour;
 
         try {
             System.out.print("Working hours count: ");
-            workingHours = in.nextFloat();
+            workingHours = in.nextBigDecimal();
             System.out.print("Price per hour: ");
-            pricePerHour = in.nextFloat();
-            System.out.printf("Salary = %f%n ", PayCalculator.calculatePay(pricePerHour, workingHours));
+            pricePerHour = in.nextBigDecimal();
+            System.out.printf("Salary = %.2f%n ", PayCalculator.calculatePay(pricePerHour, workingHours));
         } catch (InputMismatchException e) {
             System.err.println("Wrong input data");
         } catch (HoursOverLimitException e) {
